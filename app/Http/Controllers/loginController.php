@@ -28,7 +28,15 @@ class loginController extends Controller
                 if(Auth::attempt($credentials)){
                     return redirect('');
                 }
+                
             }
+            
         }
+        return redirect('log')->with('error','Invalid email or password');
+    }
+
+    function logout(){
+        Auth::logout();
+        return redirect('log');
     }
 }

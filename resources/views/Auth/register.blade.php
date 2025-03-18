@@ -65,8 +65,21 @@ body {
         <label class="form-check-label" for="flexCheckDefault">
           Remember me
         </label>
+     
       </div>
+      @if(session()->has('success'))
+      <div class="alart alart-success">
+        {{ session()->get('message') }}
+      </div>
+      @endif
+      @if(session()->has('error'))
+      <div class="alart alart-success">
+        {{ session()->get('message') }}
+      </div>
+      @endif
+
       <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+      <a href="{{ route('login')}}" class="text-center">Already Registered</a>
       <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
     </form>
   </main>
