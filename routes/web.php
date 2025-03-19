@@ -22,11 +22,17 @@ Route::get('/', function () {
 });
 */
 Route::get('/',[productManager::class, 'index'])->name('home');
-Route::get('products/{slug}',[productManager::class,'details'])->name('product.details');
+Route::get('product/{slug}',[productManager::class,'details'])->name('product.details');
 Route::get('reg',[registrationController::class,'registration'])->name('registration');
 Route::post('regpost',[registrationController::class,'registerPost'])->name('registerPost');
 Route::get('log',[loginController::class,'login'])->name('login');
 Route::get('logout',[loginController::class,'logout'])->name('logout');
 Route::post('logpost',[loginController::class,'loginPost'])->name('loginPost');
+
+Route::middleware('auth')->group(function(){
+   
+   Route::get('carts/{id}',[productManager::class, 'addToCart'])->name('product.Addcart');
+
+});
 
 

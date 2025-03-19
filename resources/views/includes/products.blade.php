@@ -10,7 +10,7 @@
             <div class="card p-2 shadow-sm" >
               <img src="{{ $product->image }}" width="100%">
             <div>
-              <a href="{{ route('product.details', $product->slug) }}">{{ $product->title }}</a> |
+              <a href="{{ route('product.details',$product->slug) }}">{{ $product->title }}</a> |
               <span>$ {{ $product->price}}</span>
             </div>
             </div>
